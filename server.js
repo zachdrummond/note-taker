@@ -1,5 +1,8 @@
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
+
+console.log(__dirname);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -12,19 +15,22 @@ app.listen(PORT, function() {
 });
 
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 app.get("/notes", function(req, res) {
-  res.sendFile(path.join(_dirname, "./public/notes.html"));
+  res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 app.get("*", function(req, res){
-  res.sendFile(path.join(_dirname, "./index.html"));
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 app.get("/api/notes", function(req, res){
-  res.readFile(path.join(_dirname, "db.json"));
+  fs.readFile("/db/db.json", "utf8", (err, data) => {
+    if(error) throw error;
+    console.log(data);
+  });
 });
 
 app.post("/api/notes", function(res, req){
