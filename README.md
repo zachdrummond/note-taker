@@ -16,9 +16,8 @@ This is a note taking application similar to Evernote that can be used to write,
 3. Look at the new HTML website that will be created.
 
 ## Links
-* Video Walkthrough: 
+* Website: https://note-taker-zachdrummond.herokuapp.com/
 * GitHub Repository: https://github.com/zachdrummond/note-taker
-* Heroku Repository: 
 
 ## Design Elements
 ### *JavaScript - Node.js*
