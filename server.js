@@ -1,42 +1,56 @@
+// DEPENDENCIES
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
 
-console.log(__dirname);
-
+// EXPRESS CONFIGURATION
 const app = express();
+
+// DEFINES A PORT
 const PORT = process.env.PORT || 3001;
 
+// MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
 
-app.listen(PORT, function() {
+// LISTENER
+app.listen(PORT, function () {
   console.log("App listening on PORT: " + PORT);
 });
 
-app.get("/", function(req, res) {
+// ROUTES
+// Home Page
+app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
-app.get("/notes", function(req, res) {
+// Notes Page
+app.get("/notes", function (req, res) {
   res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
-app.get("*", function(req, res){
-  res.sendFile(path.join(__dirname, "/public/index.html"));
-});
-
-app.get("/api/notes", function(req, res){
-  fs.readFile("/db/db.json", "utf8", (err, data) => {
-    if(error) throw error;
-    console.log(data);
+// Gets Saved Notes
+app.get("/api/notes", function (req, res) {
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
+    if (err) {
+      throw err;
+    }
+    
   });
 });
 
-app.post("/api/notes", function(res, req){
+// Adds a New Note
+app.post("/api/notes", function (req, res) {
 
 });
 
-app.delete("/api/notes/:id", function(res, req){
+// Deletes a Note
+app.delete("/api/notes/:id", function (req, res) {
 
+});
+
+// Any other Client Requests go to the Home Page
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
