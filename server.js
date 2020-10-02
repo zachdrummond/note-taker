@@ -64,7 +64,9 @@ app.post("/api/notes", function (req, res) {
 
 // Deletes a Note
 app.delete("/api/notes/:id", function (req, res) {
-
+  
+  const id = req.params.id;
+  
 });
 
 // Any other Client Requests go to the Home Page
