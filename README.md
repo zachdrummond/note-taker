@@ -1,4 +1,4 @@
-# Team-Generator
+# Note-Taker
 
 ## Table of Contents
 * [Description](#Description)
