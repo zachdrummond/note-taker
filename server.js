@@ -57,7 +57,7 @@ app.post("/api/notes", function (req, res) {
         throw err;
       }
     });
-    
+    res.json(JSON.parse(data));
   });
 });
 
