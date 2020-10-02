@@ -36,7 +36,7 @@ app.get("/api/notes", function (req, res) {
     if (err) {
       throw err;
     }
-    
+    res.json(JSON.parse(data));
   });
 });
 
