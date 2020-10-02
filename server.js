@@ -42,23 +42,24 @@ app.get("/api/notes", function (req, res) {
 
 // Adds a New Note
 app.post("/api/notes", function (req, res) {
+  if (req.body.title && req.body.text) {
+    const noteObject = req.body;
 
-  const noteObject = req.body;
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+      if (err) { throw err; }
 
-  fs.readFile("./db/db.json", "utf8", (err, data) => {
-    if (err) { throw err; }
+      const noteArray = JSON.parse(data);
+      noteObject.id = noteArray.length+1;
+      noteArray.push(noteObject);
 
-    const noteArray = JSON.parse(data);
-    noteObject.id = noteArray.length+1;
-    noteArray.push(noteObject);
-
-    fs.writeFile("./db/db.json", JSON.stringify(noteArray), (err, data) => {
-      if (err) {
-        throw err;
-      }
+      fs.writeFile("./db/db.json", JSON.stringify(noteArray), (err, data) => {
+        if (err) {
+          throw err;
+        }
+      });
+      res.json(JSON.parse(data));
     });
-    res.json(JSON.parse(data));
-  });
+  }
 });
 
 // Deletes a Note
