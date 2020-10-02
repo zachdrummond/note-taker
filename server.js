@@ -73,6 +73,12 @@ app.delete("/api/notes/:id", function (req, res) {
     const noteArray = JSON.parse(data);
     const newNoteArray = noteArray.filter(item => { return item.id != id });
 
+    fs.writeFile("./db/db.json", JSON.stringify(newNoteArray), (err, data) => {
+      if (err) {
+        throw err;
+      }
+    });
+    
   });
 
 });
