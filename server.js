@@ -44,7 +44,17 @@ app.get("/api/notes", function (req, res) {
 app.post("/api/notes", function (req, res) {
 
   const noteObject = req.body;
-  
+
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
+    if (err) { throw err; }
+
+    const noteArray = JSON.parse(data);
+    noteObject.id = noteArray.length+1;
+    noteArray.push(noteObject);
+
+    
+    
+  });
 });
 
 // Deletes a Note
