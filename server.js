@@ -43,6 +43,8 @@ app.get("/api/notes", function (req, res) {
 // Adds a New Note
 app.post("/api/notes", function (req, res) {
 
+  const noteObject = req.body;
+  
 });
 
 // Deletes a Note
