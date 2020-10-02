@@ -66,7 +66,14 @@ app.post("/api/notes", function (req, res) {
 app.delete("/api/notes/:id", function (req, res) {
   
   const id = req.params.id;
-  
+
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
+    if (err) { throw err; }
+
+    
+
+  });
+
 });
 
 // Any other Client Requests go to the Home Page
