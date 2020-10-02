@@ -46,10 +46,12 @@ app.post("/api/notes", function (req, res) {
     const noteObject = req.body;
 
     fs.readFile("./db/db.json", "utf8", (err, data) => {
-      if (err) { throw err; }
+      if (err) {
+        throw err;
+      }
 
       const noteArray = JSON.parse(data);
-      noteObject.id = noteArray.length+1;
+      noteObject.id = noteArray.length + 1;
       noteArray.push(noteObject);
 
       fs.writeFile("./db/db.json", JSON.stringify(noteArray), (err, data) => {
@@ -67,11 +69,15 @@ app.delete("/api/notes/:id", function (req, res) {
   const id = req.params.id;
 
   fs.readFile("./db/db.json", "utf8", (err, data) => {
-    if (err) { throw err; }
+    if (err) {
+      throw err;
+    }
 
     const noteArray = JSON.parse(data);
 
-    const newNoteArray = noteArray.filter(item => { return item.id != id });
+    const newNoteArray = noteArray.filter((item) => {
+      return item.id != id;
+    });
 
     fs.writeFile("./db/db.json", JSON.stringify(newNoteArray), (err, data) => {
       if (err) {
