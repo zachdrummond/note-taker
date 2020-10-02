@@ -52,7 +52,11 @@ app.post("/api/notes", function (req, res) {
     noteObject.id = noteArray.length+1;
     noteArray.push(noteObject);
 
-    
+    fs.writeFile("./db/db.json", JSON.stringify(noteArray), (err, data) => {
+      if (err) {
+        throw err;
+      }
+    });
     
   });
 });
