@@ -71,6 +71,7 @@ app.delete("/api/notes/:id", function (req, res) {
     if (err) { throw err; }
 
     const noteArray = JSON.parse(data);
+    const newNoteArray = noteArray.filter(item => { return item.id != id });
 
   });
 
