@@ -15,60 +15,13 @@ This is a note taking application similar to Evernote that can be used to write,
 * GitHub Repository: https://github.com/zachdrummond/note-taker
 
 ## Design Elements
-### *Overview*
-* Clean User Interface
-* Logical Code Structure
-* Sequential Order
-
-### *JavaScript - Node.js*
-* Modules
-* Node Packages - File System, Path
-* Node Package Manager - Express
-* JSON
-* Routing
-* Middleware Functions
-* Dynamically Updated HTML and CSS powered by jQuery
-* Document Object Model Manipulation
-* AJAX
-* Event Listeners
-* Objects
-* Arrays
-* Methods
-* Functions
-* if...else Statements
-* PORTs & Environment Variables
-* Comments
-
-### *Bootstrap*
-* Grid System
-* Navigation Bar
-* Jumbotron
-* Cards
-* List Group
-* Containers
-* Buttons
-* Icons
-* Sizing
-* Spacing
-* Alignment
-* Colors
-
-### *HTML*
-* Concise Descriptive Title
-* Lists
-* Buttons
-* Input
-* Text Area
-* Links
-
-### *CSS*
-* Margin & Padding
-* Cursor
-* Border
-* Sizing
-* Height and Width
-* Font
-* Color
+* JavaScript
+* Node.js
+* Express.js
+* jQuery
+* HTML
+* CSS
+* Bootstrap
 
 ## App Preview
 ### Home Page
